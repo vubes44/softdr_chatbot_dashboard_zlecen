@@ -67,6 +67,11 @@ const handleClick = (event: MouseEvent) => {
     background-color: rgb(100, 100, 200);
     color: rgb(240, 240, 241);
   }
+  &--another {
+    background-color: rgb(80, 35, 184);
+    color: white;
+    border-radius: 2px;
+  }
   &__loader {
     width: 16px;
     height: 16px;

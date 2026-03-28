@@ -1,13 +1,10 @@
 <template>
   <div class="o-order">
-    <ALabel componentType="p" margin="0 5px 0 0">{{
-      props.order.status
-    }}</ALabel>
     <ALabel componentType="h2" margin="0 0 10px 0">
       {{ props.order.name }}
     </ALabel>
     <ALabel componentType="h3" margin="0 0 20px 0">
-      {{ props.order.company }}
+      {{ props.order.customer }}
     </ALabel>
     <MLabelAndValue
       layout="vertical"
@@ -30,23 +27,27 @@
       :value="props.order.phone"
       totalMargin="10px 0"
     />
+    <AButton @click="showDetails()">Szczegóły zlecenia</AButton>
   </div>
 </template>
 <script setup lang="ts">
 import MLabelAndValue from "../molecules/MLabelAndValue.vue";
 import ALabel from "../atoms/ALabel.vue";
+import AButton from "../atoms/AButton.vue";
+
 type Order = {
   name: string;
-  company: string;
+  customer: string;
   date: string;
   email: string;
   phone: string;
-  status: string;
 };
 
 const props = defineProps<{
   order: Order;
 }>();
+
+const showDetails = () => {};
 </script>
 <style lang="scss">
 .o-order {
