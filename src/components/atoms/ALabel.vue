@@ -6,7 +6,7 @@
       'a-label--apptitle': props.styleType === 'apptitle',
       'a-label--secondary': props.styleType === 'secondary',
     }"
-    :style="{ margin: props.margin }"
+    :style="{ margin: props.margin, textAlign: props.textAlign }"
   >
     <slot />
   </component>
@@ -18,12 +18,14 @@ const props = withDefaults(
     componentType?: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "label" | "span";
     styleType?: "apptitle" | "secondary" | "disabled" | "default";
     margin?: string;
+    textAlign?: "center" | "right" | "left";
   }>(),
   {
     isDisabled: false,
     componentType: "label",
     styleType: "default",
     margin: "0",
+    textAlign: "left",
   },
 );
 </script>

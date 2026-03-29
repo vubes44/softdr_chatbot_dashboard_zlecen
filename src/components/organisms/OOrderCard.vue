@@ -8,21 +8,21 @@
     </ALabel>
     <MLabelAndValue
       layout="vertical"
-      :label="'Data:'"
+      :label="'Data'"
       labelComponentType="h3"
       :value="props.order.date"
       totalMargin="10px 0"
     />
     <MLabelAndValue
       layout="vertical"
-      :label="'Email:'"
+      :label="'Email'"
       labelComponentType="h3"
       :value="props.order.email"
       totalMargin="10px 0"
     />
     <MLabelAndValue
       layout="vertical"
-      :label="'Nr. tel.:'"
+      :label="'Nr. tel.'"
       labelComponentType="h3"
       :value="props.order.phone"
       totalMargin="10px 0"
@@ -34,14 +34,7 @@
 import MLabelAndValue from "../molecules/MLabelAndValue.vue";
 import ALabel from "../atoms/ALabel.vue";
 import AButton from "../atoms/AButton.vue";
-
-type Order = {
-  name: string;
-  customer: string;
-  date: string;
-  email: string;
-  phone: string;
-};
+import type { Order } from "../../types/types";
 
 const props = defineProps<{
   order: Order;
