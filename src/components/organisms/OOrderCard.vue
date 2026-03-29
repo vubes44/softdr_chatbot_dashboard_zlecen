@@ -8,9 +8,16 @@
     </ALabel>
     <MLabelAndValue
       layout="vertical"
-      :label="'Data'"
+      :label="'Data wysłania'"
       labelComponentType="h3"
-      :value="props.order.date"
+      :value="props.order.sendDate"
+      totalMargin="10px 0"
+    />
+    <MLabelAndValue
+      layout="vertical"
+      :label="'Na kiedy'"
+      labelComponentType="h3"
+      :value="props.order.deadline"
       totalMargin="10px 0"
     />
     <MLabelAndValue

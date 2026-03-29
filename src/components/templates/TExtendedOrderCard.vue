@@ -15,7 +15,7 @@
           <header class="modal__header">
             <ALabel
               componentType="h5"
-              styleType="apptitle"
+              styleType="secondary"
               :margin="'0 0 0.5rem 0'"
               >Szczególy zlecenia</ALabel
             >
@@ -33,8 +33,13 @@
               totalMargin="0.25rem 0"
             />
             <MLabelAndValue
-              label="Data na wykonanie"
-              :value="props.order.date"
+              label="Data wysłania"
+              :value="props.order.sendDate"
+              totalMargin="0.25rem 0"
+            />
+            <MLabelAndValue
+              label="Na kiedy"
+              :value="props.order.deadline"
               totalMargin="0.25rem 0"
             />
             <MLabelAndValue
@@ -51,8 +56,9 @@
             <div class="m-description" style="margin-top: 0.75rem">
               <ALabel
                 componentType="label"
-                styleType="secondary"
+                styleType="textlabel"
                 :margin="'0 0 0.25rem 0'"
+                textAlign="left"
                 >Opis</ALabel
               >
               <ALabel componentType="p" :margin="'0'">{{

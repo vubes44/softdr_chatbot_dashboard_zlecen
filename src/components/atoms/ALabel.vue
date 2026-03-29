@@ -6,7 +6,15 @@
       'a-label--apptitle': props.styleType === 'apptitle',
       'a-label--secondary': props.styleType === 'secondary',
     }"
-    :style="{ margin: props.margin, textAlign: props.textAlign }"
+    :style="{
+      margin: props.margin,
+      textAlign: props.textAlign,
+      display: props.display
+        ? props.display
+        : props.componentType === 'label'
+          ? 'block'
+          : undefined,
+    }"
   >
     <slot />
   </component>
@@ -16,9 +24,10 @@ const props = withDefaults(
   defineProps<{
     isDisabled?: boolean;
     componentType?: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "label" | "span";
-    styleType?: "apptitle" | "secondary" | "disabled" | "default";
+    styleType?: "apptitle" | "secondary" | "textlabel" | "disabled" | "default";
     margin?: string;
     textAlign?: "center" | "right" | "left";
+    display?: "inline" | "inline-block" | "block";
   }>(),
   {
     isDisabled: false,
@@ -50,8 +59,11 @@ const props = withDefaults(
     "Helvetica Neue",
     sans-serif;
 }
+.a-label--textlabel {
+  font-size: 13pt;
+}
 .a-label--secondary {
   color: rgb(200, 200, 200);
-  font-family: "calibri";
+  font-size: 45pt;
 }
 </style>

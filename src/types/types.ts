@@ -1,7 +1,8 @@
 export type Order = {
   name: string;
   customer: string;
-  date: string;
+  sendDate: string;
+  deadline: string;
   email: string;
   phone: string;
   description: string;

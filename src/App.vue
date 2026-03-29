@@ -29,7 +29,8 @@ const orders: Order[] = [
   {
     name: "Stworzenie aplikacji webowej",
     customer: "SofTDR",
-    date: "2026-03-28",
+    sendDate: "2026-03-28",
+    deadline: "2026-05-05",
     email: "kontakt@firmaa.pl",
     phone: "+48 123 456 789",
     description: "Opis zlecenia 001",
