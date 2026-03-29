@@ -26,40 +26,46 @@
               label="Nazwa zlecenia"
               :value="props.order.name"
               totalMargin="0.25rem 0"
+              boldLabelOrValue="label"
             />
             <MLabelAndValue
               label="Klient"
               :value="props.order.customer"
               totalMargin="0.25rem 0"
+              boldLabelOrValue="label"
             />
             <MLabelAndValue
               label="Data wysłania"
               :value="props.order.sendDate"
               totalMargin="0.25rem 0"
+              boldLabelOrValue="label"
             />
             <MLabelAndValue
               label="Na kiedy"
               :value="props.order.deadline"
               totalMargin="0.25rem 0"
+              boldLabelOrValue="label"
             />
             <MLabelAndValue
               label="Email"
               :value="props.order.email"
               totalMargin="0.25rem 0"
+              boldLabelOrValue="label"
             />
             <MLabelAndValue
               label="Nr. tel."
               :value="props.order.phone"
               totalMargin="0.25rem 0"
+              boldLabelOrValue="label"
             />
 
             <div class="m-description" style="margin-top: 0.75rem">
               <ALabel
                 componentType="label"
-                styleType="textlabel"
+                styleType="textlabel_bold"
                 :margin="'0 0 0.25rem 0'"
                 textAlign="left"
-                >Opis</ALabel
+                >Opis zlecenia</ALabel
               >
               <ALabel componentType="p" :margin="'0'">{{
                 props.order.description || "-"

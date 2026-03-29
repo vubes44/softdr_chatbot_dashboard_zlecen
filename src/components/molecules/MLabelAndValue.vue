@@ -6,7 +6,7 @@
   >
     <ALabel
       :componentType="labelComponentType"
-      styleType="default"
+      :styleType="labelStyleType"
       :margin="labelMargin"
     >
       {{ label }}
@@ -14,7 +14,7 @@
 
     <ALabel
       :componentType="valueComponentType"
-      styleType="default"
+      :styleType="valueStyleType"
       :margin="valueMargin"
     >
       {{ value }}
@@ -22,6 +22,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { computed } from "vue";
 import ALabel from "../atoms/ALabel.vue";
 
 const props = withDefaults(
@@ -47,6 +48,7 @@ const props = withDefaults(
       | "p"
       | "label"
       | "span";
+    boldLabelOrValue?: "none" | "label" | "value" | "label value";
     labelMargin?: string;
     valueMargin?: string;
     totalMargin?: string;
@@ -57,10 +59,23 @@ const props = withDefaults(
     value: "",
     labelComponentType: "label",
     valueComponentType: "label",
+    boldLabelOrValue: "none",
     labelMargin: "0",
     valueMargin: "0",
     totalMargin: "0",
   },
+);
+
+const labelStyleType = computed(() =>
+  (props.boldLabelOrValue ?? "").includes("label")
+    ? "textlabel_bold"
+    : "textlabel",
+);
+
+const valueStyleType = computed(() =>
+  (props.boldLabelOrValue ?? "").includes("value")
+    ? "textlabel_bold"
+    : "default",
 );
 </script>
 <style lang="scss">

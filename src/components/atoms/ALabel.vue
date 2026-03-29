@@ -2,9 +2,11 @@
   <component
     :is="props.componentType"
     :class="{
-      'a-label--disabled': isDisabled,
+      'a-label--disabled': isDisabled || props.styleType === 'disabled',
       'a-label--apptitle': props.styleType === 'apptitle',
       'a-label--secondary': props.styleType === 'secondary',
+      'a-label--textlabel': props.styleType === 'textlabel',
+      'a-label--textlabel_bold': props.styleType === 'textlabel_bold',
     }"
     :style="{
       margin: props.margin,
@@ -24,7 +26,13 @@ const props = withDefaults(
   defineProps<{
     isDisabled?: boolean;
     componentType?: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "label" | "span";
-    styleType?: "apptitle" | "secondary" | "textlabel" | "disabled" | "default";
+    styleType?:
+      | "apptitle"
+      | "secondary"
+      | "textlabel"
+      | "textlabel_bold"
+      | "disabled"
+      | "default";
     margin?: string;
     textAlign?: "center" | "right" | "left";
     display?: "inline" | "inline-block" | "block";
@@ -62,8 +70,12 @@ const props = withDefaults(
 .a-label--textlabel {
   font-size: 13pt;
 }
+.a-label--textlabel_bold {
+  font-size: 13pt;
+  font-weight: bold;
+}
 .a-label--secondary {
   color: rgb(200, 200, 200);
-  font-size: 45pt;
+  font-size: 20pt;
 }
 </style>
