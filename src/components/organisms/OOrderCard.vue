@@ -35,19 +35,40 @@
       totalMargin="10px 0"
     />
     <AButton @click="showDetails()">Szczegóły zlecenia</AButton>
+    <TExtendedOrderCard
+      :order="props.order"
+      :show="showModal"
+      @close="showModal = false"
+      @edit="onEdit"
+    />
   </div>
 </template>
 <script setup lang="ts">
 import MLabelAndValue from "../molecules/MLabelAndValue.vue";
 import ALabel from "../atoms/ALabel.vue";
 import AButton from "../atoms/AButton.vue";
+import TExtendedOrderCard from "../templates/TExtendedOrderCard.vue";
 import type { Order } from "../../types/types";
+import { ref } from "vue";
+
+const emit = defineEmits<{
+  (e: "edit", order: Order): void;
+}>();
 
 const props = defineProps<{
   order: Order;
 }>();
 
-const showDetails = () => {};
+const showModal = ref(false);
+
+const showDetails = () => {
+  showModal.value = true;
+};
+
+const onEdit = () => {
+  showModal.value = false;
+  emit("edit", props.order);
+};
 </script>
 <style lang="scss">
 .o-order {
